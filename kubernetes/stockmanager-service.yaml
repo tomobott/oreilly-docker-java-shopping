@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: stockmanager
-        image: tomobott/djstockmanager:v1
+        image: tomobott/djstockmanager:v1.1
         ports:
         - containerPort: 8030
         livenessProbe:
