@@ -1,12 +1,12 @@
 #!/bin/bash
 
 cd shopfront
-mvn clean install
+docker run --rm -it -v $(pwd):/project maven mvn clean install -f /project
 cd ..
 cd productcatalogue
-mvn clean install
+docker run --rm -it -v $(pwd):/project maven mvn clean install -f /project
 cd ..
 cd stockmanager
-mvn clean install
+docker run --rm -it -v $(pwd):/project maven mvn clean install -f /project
 cd ..
 

@@ -15,12 +15,17 @@ spec:
     name: http
 
 ---
-apiVersion: v1
-kind: ReplicationController
+apiVersion: apps/v1
+kind: Deployment 
 metadata:
   name: productcatalogue
+  labels:
+    app: productcatalogue
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: productcatalogue
   template:
     metadata:
       labels:
@@ -28,7 +33,7 @@ spec:
     spec:
       containers:
       - name: productcatalogue
-        image: danielbryantuk/djproductcatalogue:1.0
+        image: tomobott/djproductcatalogue:v1
         ports:
         - containerPort: 8020
         livenessProbe:

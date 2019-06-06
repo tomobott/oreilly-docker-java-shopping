@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1 
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx-testlab
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  labels:
+    app: shopfront 
+  name: shopfront 
+spec:
+  rules:
+  - host: id-k8s-ingress-test01.ids.cbn
+    http:
+      paths:
+      - backend:
+          serviceName: shopfront 
+          servicePort: 8010
+        path: /svc/test/shopfront
+  tls:
+  - hosts:
+    - id-k8s-ingress-test01.ids.cbn
+    secretName: id-k8s-ingress-test01
+
